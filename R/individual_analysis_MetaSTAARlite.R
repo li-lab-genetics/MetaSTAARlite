@@ -1,6 +1,6 @@
 individual_analysis_MetaSTAARlite <- function(sample.sizes,sumstat.list,
                                               mac_cutoff=20,check_qc_label=FALSE){
-  
+
   cov_maf_cutoff <- rep(0.5 + 1e-16,length(sample.sizes))
   ### summary statistics
   sumstat.list <- lapply(sumstat.list, function(x) {
@@ -49,7 +49,7 @@ individual_analysis_MetaSTAARlite <- function(sample.sizes,sumstat.list,
   })
   rm(sumstat.list,sumstat.varid.list,sumstat.varid.merge)
   gc()
-  
+
   ### select "common" variant based on the input cutoff
   alt_AC.merge <- as.integer(Reduce("+",lapply(sumstat.merge.list, function(x) {x$alt_AC})))
   N.merge.nonzero <- Reduce("+",lapply(sumstat.merge.list, function(x) {x$N * (x$MAC != 0)}))
@@ -67,26 +67,26 @@ individual_analysis_MetaSTAARlite <- function(sample.sizes,sumstat.list,
       x$qc_label=="PASS"
     }))
   }
-  
+
   info <- cbind(sumstat.varid.nodup[,c("chr","pos","ref","alt")],
                 alt_AC=alt_AC.merge,MAC=MAC.merge,MAF=MAF.merge,N=N.merge)[cv.index,]
-  
+
   U.merge <- Reduce("+", lapply(sumstat.merge.list, function(x) {
     x <- x[cv.index,]
     return(x$U * (2 * (x$alt_AC == x$MAC) - 1))
   }))
-  
+
   V.merge <- Reduce("+", lapply(sumstat.merge.list, function(x) {
     x <- x[cv.index,]
     return(x$V)
   }))
-  
+
   p.merge <- pchisq(U.merge^2/V.merge,df=1,lower.tail=FALSE)
   logp.merge <- -pchisq(U.merge^2/V.merge,df=1,lower.tail=FALSE,log.p=TRUE)
-  
+
   rm(list=setdiff(ls(), c("info","U.merge","V.merge","p.merge","logp.merge")))
   gc()
-  
+
   results_temp <- data.frame(chr=info$chr,
                              pos=info$pos,
                              ref=info$ref,
@@ -101,7 +101,7 @@ individual_analysis_MetaSTAARlite <- function(sample.sizes,sumstat.list,
                              Score_se=sqrt(V.merge),
                              Est=U.merge/V.merge,
                              Est_se=1/sqrt(V.merge))
-  
+
   if(!is.null(results_temp))
   {
     results <- data.frame(CHR=results_temp$chr,POS=results_temp$pos,REF=results_temp$ref,ALT=results_temp$alt,
@@ -110,10 +110,11 @@ individual_analysis_MetaSTAARlite <- function(sample.sizes,sumstat.list,
                           Score=results_temp$Score,Score_se=results_temp$Score_se,
                           Est=results_temp$Est,Est_se=results_temp$Est_se)
     results <- results[order(results$POS,results$REF,results$ALT),]
+    row.names(results) <- NULL
   }else
   {
     results <- NULL
   }
-  
+
   return(results)
 }

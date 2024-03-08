@@ -230,6 +230,7 @@ individual_analysis_MetaSTAARlite_cond <- function(individual_results,sample.siz
                                                                                   "ALT"="ALT"))
   individual_results[is.na(individual_results$pvalue_cond),"pvalue_cond"] <- 1
   individual_results[is.na(individual_results$pvalue_cond_log10),"pvalue_cond_log10"] <- 0
+  row.names(individual_results) <- NULL
 
   return(individual_results)
 }
