@@ -5,6 +5,9 @@ importFrom("SeqVarTools", "isSNV")
 importFrom("GenomicFeatures", "genes", "promoters")
 importFrom("expm", "sqrtm")
 importFrom("MASS", "ginv")
+importFrom("grDevices", "dev.off", "png")
+importFrom("graphics", "abline", "legend", "par", "plot")
+importFrom("utils", "write.csv")
 
 
 # functions
@@ -24,4 +27,6 @@ export(individual_analysis_MetaSTAARlite_worker,
        MetaSTAARlite_worker_cov,
        MetaSTAARlite_worker_cov_cond,
        MetaSTAARlite_merge,
-       MetaSTAARlite_merge_cond)
+       MetaSTAARlite_merge_cond,
+       Gene_Centric_Coding_Results_Summary_meta,
+       Gene_Centric_Noncoding_Results_Summary_meta)
