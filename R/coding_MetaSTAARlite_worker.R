@@ -234,7 +234,6 @@ coding_MetaSTAARlite_worker <- function(chr,gene_name,genofile,obj_nullmodel,gen
   #####################################################
   #                      plof
   #####################################################
-  # variant.id.gene <- seqGetData(genofile, "variant.id")
   lof.in.plof <- (GENCODE.EXONIC.Category=="stopgain")|(GENCODE.EXONIC.Category=="stoploss")|(GENCODE.Category=="splicing")|(GENCODE.Category=="exonic;splicing")|(GENCODE.Category=="ncRNA_splicing")|(GENCODE.Category=="ncRNA_exonic;splicing")
   variant.id.gene.category <- variant.id.gene[lof.in.plof]
 
