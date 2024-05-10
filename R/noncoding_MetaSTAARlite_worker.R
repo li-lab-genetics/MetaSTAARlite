@@ -104,7 +104,7 @@ noncoding_MetaSTAARlite_worker <- function(chr,gene_name,genofile,obj_nullmodel,
   is.in <- (GENCODE.Category=="downstream")&(SNVlist)
   variant.id.downstream <- variant.id[is.in]
 
-  seqSetFilter(genofile,variant.id=variant.id.downstream)
+  seqSetFilter(genofile,variant.id=variant.id.downstream,sample.id=phenotype.id)
 
   rm(variant.id.downstream)
   gc()
@@ -133,7 +133,7 @@ noncoding_MetaSTAARlite_worker <- function(chr,gene_name,genofile,obj_nullmodel,
   is.in <- which(Gene==gene_name)
   variant.is.in <- variant.id.SNV[is.in]
 
-  seqSetFilter(genofile,variant.id=variant.is.in)
+  seqSetFilter(genofile,variant.id=variant.is.in,sample.id=phenotype.id)
 
   pos <- as.integer(seqGetData(genofile, "position"))
   ref <- as.character(seqGetData(genofile, "$ref"))
@@ -231,7 +231,7 @@ noncoding_MetaSTAARlite_worker <- function(chr,gene_name,genofile,obj_nullmodel,
   is.in <- (GENCODE.Category=="upstream")&(SNVlist)
   variant.id.upstream <- variant.id[is.in]
 
-  seqSetFilter(genofile,variant.id=variant.id.upstream)
+  seqSetFilter(genofile,variant.id=variant.id.upstream,sample.id=phenotype.id)
 
   rm(variant.id.upstream)
   gc()
@@ -260,7 +260,7 @@ noncoding_MetaSTAARlite_worker <- function(chr,gene_name,genofile,obj_nullmodel,
   is.in <- which(Gene==gene_name)
   variant.is.in <- variant.id.SNV[is.in]
 
-  seqSetFilter(genofile,variant.id=variant.is.in)
+  seqSetFilter(genofile,variant.id=variant.is.in,sample.id=phenotype.id)
 
   pos <- as.integer(seqGetData(genofile, "position"))
   ref <- as.character(seqGetData(genofile, "$ref"))
@@ -357,7 +357,7 @@ noncoding_MetaSTAARlite_worker <- function(chr,gene_name,genofile,obj_nullmodel,
   rm(GENCODE.Category)
   gc()
 
-  seqSetFilter(genofile,variant.id=variant.id.UTR)
+  seqSetFilter(genofile,variant.id=variant.id.UTR,sample.id=phenotype.id)
 
   rm(variant.id.UTR)
   gc()
@@ -381,7 +381,7 @@ noncoding_MetaSTAARlite_worker <- function(chr,gene_name,genofile,obj_nullmodel,
   is.in <- which(Gene==gene_name)
   variant.is.in <- variant.id.SNV[is.in]
 
-  seqSetFilter(genofile,variant.id=variant.is.in)
+  seqSetFilter(genofile,variant.id=variant.is.in,sample.id=phenotype.id)
 
   pos <- as.integer(seqGetData(genofile, "position"))
   ref <- as.character(seqGetData(genofile, "$ref"))
@@ -544,7 +544,7 @@ noncoding_MetaSTAARlite_worker <- function(chr,gene_name,genofile,obj_nullmodel,
   is.in <- which(dfPromCAGEVarGene.SNV[,5]==gene_name)
   variant.is.in <- variant.id.SNV[is.in]
 
-  seqSetFilter(genofile,variant.id=variant.is.in)
+  seqSetFilter(genofile,variant.id=variant.is.in,sample.id=phenotype.id)
 
   pos <- as.integer(seqGetData(genofile, "position"))
   ref <- as.character(seqGetData(genofile, "$ref"))
@@ -703,7 +703,7 @@ noncoding_MetaSTAARlite_worker <- function(chr,gene_name,genofile,obj_nullmodel,
   is.in <- which(dfPromrOCRsVarGene.SNV[,5]==gene_name)
   variant.is.in <- variant.id.SNV[is.in]
 
-  seqSetFilter(genofile,variant.id=variant.is.in)
+  seqSetFilter(genofile,variant.id=variant.is.in,sample.id=phenotype.id)
 
   pos <- as.integer(seqGetData(genofile, "position"))
   ref <- as.character(seqGetData(genofile, "$ref"))
@@ -866,7 +866,7 @@ noncoding_MetaSTAARlite_worker <- function(chr,gene_name,genofile,obj_nullmodel,
   is.in <- which(dfHancerCAGEVarGene.SNV[,5]==gene_name)
   variant.is.in <- variant.id.SNV[is.in]
 
-  seqSetFilter(genofile,variant.id=variant.is.in)
+  seqSetFilter(genofile,variant.id=variant.is.in,sample.id=phenotype.id)
 
   pos <- as.integer(seqGetData(genofile, "position"))
   ref <- as.character(seqGetData(genofile, "$ref"))
@@ -1028,7 +1028,7 @@ noncoding_MetaSTAARlite_worker <- function(chr,gene_name,genofile,obj_nullmodel,
   is.in <- which(dfHancerrOCRsVarGene.SNV[,5]==gene_name)
   variant.is.in <- variant.id.SNV[is.in]
 
-  seqSetFilter(genofile,variant.id=variant.is.in)
+  seqSetFilter(genofile,variant.id=variant.is.in,sample.id=phenotype.id)
 
   pos <- as.integer(seqGetData(genofile, "position"))
   ref <- as.character(seqGetData(genofile, "$ref"))

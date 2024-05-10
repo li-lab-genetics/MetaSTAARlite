@@ -103,7 +103,7 @@ ncRNA_MetaSTAARlite_worker <- function(chr,gene_name,genofile,obj_nullmodel,know
   rm(GENCODE.Category)
   gc()
 
-  seqSetFilter(genofile,variant.id=variant.id.ncRNA)
+  seqSetFilter(genofile,variant.id=variant.id.ncRNA,sample.id=phenotype.id)
 
   rm(variant.id.ncRNA)
   gc()
@@ -132,7 +132,7 @@ ncRNA_MetaSTAARlite_worker <- function(chr,gene_name,genofile,obj_nullmodel,know
 
   variant.is.in <- variant.id.ncRNA[is.in]
 
-  seqSetFilter(genofile,variant.id=variant.is.in)
+  seqSetFilter(genofile,variant.id=variant.is.in,sample.id=phenotype.id)
 
   pos <- as.integer(seqGetData(genofile, "position"))
   ref <- as.character(seqGetData(genofile, "$ref"))
