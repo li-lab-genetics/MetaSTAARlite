@@ -1,5 +1,6 @@
 exportPattern("^[[:alpha:]]+")
-import(Rcpp, STAAR, MetaSTAAR, STAARpipeline, STAARpipelineSummary, dplyr, SeqArray, TxDb.Hsapiens.UCSC.hg38.knownGene, Matrix, methods)
+import(Rcpp, STAAR, MetaSTAAR, STAARpipeline, dplyr, SeqArray, TxDb.Hsapiens.UCSC.hg38.knownGene, Matrix, methods)
+import(STAARpipelineSummary, except = genes)
 importFrom("stats", "pchisq", "lm", "model.matrix", "quantile", "rnorm", "binomial")
 importFrom("SeqVarTools", "isSNV")
 importFrom("GenomicFeatures", "genes", "promoters")

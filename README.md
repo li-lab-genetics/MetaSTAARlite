@@ -1,7 +1,7 @@
 # MetaSTAARlite
 This is a lightweight R package for performing association meta-analysis of whole-genome/whole-exome sequencing (WGS/WES) studies using MetaSTAAR pipeline.
 ## Description
-**MetaSTAARlite** is a lightweight R package for phenotype-genotype association meta-analyses of biobank-scale WGS/WES data, including single variant meta-analysis and variant set meta-analysis. The single variant meta-analysis in MetaSTAARlite provides individual *P* values of variants given a MAF or MAC cut-off. The variant set meta-analysis in MetaSTAARlite includes (1) gene-centric coding meta-analysis, which provides five categories of protein-coding genes: putative loss of function (pLoF), missense, disruptive missense, pLoF and disruptive missense, and synonymous; (2) gene-centric noncoding meta-analysis, which provides one category of noncoding RNA (ncRNA) genes and seven categories of protein-coding genes: promoter or enhancer overlaid with CAGE or DHS sites, UTR, upstream, downstream. MetaSTAARlite also provides analytical follow-up of dissecting association signals independent of known variants via conditional meta-analysis.
+**MetaSTAARlite** is a lightweight R package for phenotype-genotype association meta-analyses of biobank-scale WGS/WES data, including single variant meta-analysis and variant set meta-analysis. The single variant meta-analysis in MetaSTAARlite provides individual *P* values of variants given a MAF or MAC cut-off. The variant set meta-analysis in MetaSTAARlite includes (1) gene-centric coding meta-analysis, which provides five categories of protein-coding genes: putative loss of function (pLoF), missense, disruptive missense, pLoF and disruptive missense, and synonymous; (2) gene-centric noncoding meta-analysis, which provides one category of noncoding RNA (ncRNA) genes and seven categories of protein-coding genes: promoter or enhancer overlaid with CAGE or DHS sites, UTR, upstream, downstream; (3) support for user-defined custom analysis units (masks). MetaSTAARlite also provides analytical follow-up of dissecting association signals independent of known variants via conditional meta-analysis.
 ## Prerequisites
 <a href="https://www.r-project.org">R</a> (recommended version >= 3.5.1)
 
@@ -22,7 +22,7 @@ Please see the <a href="docs/MetaSTAARlite_manual.pdf">**MetaSTAARlite** user ma
 ## Data Availability
 The whole-genome functional annotation data assembled from a variety of sources and the precomputed annotation principal components are available at the [Functional Annotation of Variant - Online Resource (FAVOR)](https://favor.genohub.org) site and [FAVOR Essential Database](https://doi.org/10.7910/DVN/1VGTJI).
 ## Version
-The current version is 0.9.6 (Febrary 23, 2024).
+The current version is 0.9.6 (July 1, 2024).
 ## Citation
 If you use **MetaSTAARlite** for your work, please cite:
 
