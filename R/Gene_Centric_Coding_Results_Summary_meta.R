@@ -1,3 +1,16 @@
+#' Generates summary table and/or visualization for the meta-analysis of coding functional categories that was conducted.
+#'
+#' This function generates a summary table, Manhattan plot, and QQ plot for the meta-analysis of coding functional categories that was conducted
+#' based on the parameters provided by the user.
+#'
+#' @param gene_centric_coding_jobs_num an integer which specifies the number of jobs done in the meta-analysis.
+#' @param input_path a character which specifies the file path to the meta-analysis results files.
+#' @param output_path a character which specifies the file path to the desired location of the produced summary table and visualizations.
+#' @param gene_centric_results_name a character which specifies the name (excluding the jobs number) of the meta-analysis results files.
+#' @param alpha a numeric value which specifies the desired significance threshold. Default is 2.5E-06.
+#' @param manhattan_plot a logical value which determines if a Manhattan plot is generated. Default is FALSE.
+#' @param QQ_plot a logical value which determines if a QQ plot is generated. Default is FALSE.
+
 Gene_Centric_Coding_Results_Summary_meta <- function(gene_centric_coding_jobs_num,input_path,output_path,gene_centric_results_name,
                                                      alpha=2.5E-06,manhattan_plot=FALSE,QQ_plot=FALSE){
 
@@ -59,7 +72,7 @@ Gene_Centric_Coding_Results_Summary_meta <- function(gene_centric_coding_jobs_nu
       print(kk)
     }
   }
-  
+
   ###### whole-genome results
   # plof
   save(results_plof_genome,file=paste0(output_path,"plof.Rdata"))

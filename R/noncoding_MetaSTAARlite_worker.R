@@ -1,3 +1,45 @@
+#' Perform the worker step of MetaSTAARlite for noncoding masks
+#'
+#' This function uses MetaSTAARliteWorker to generate variant summary statistics
+#' and sparse LD matrices for gene-centric coding analysis.
+#'
+#' @param chr an integer which specifies the chromosome number.
+#' @param gene_name a character which specifies the name of the gene to be meta-analyzed using
+#'the MetaSTAAR procedure.
+#' @param genofile
+#' @param obj_nullmodel an object from fitting the null model, which is the
+#' output from either \code{\link{fit_null_glm}} function for unrelated samples or
+#' \code{\link{fit_null_glmmkin}} function for related samples in the \code{\link{STAAR}} package.
+#' @param genes
+#' @param known_loci the data frame of variants to be adjusted for in conditional analysis. Should
+#' contain four columns in the following order: chromosome (CHR), position (POS), reference allele (REF),
+#' and alternative allele (ALT). Default is NULL.
+#' @param cov_maf_cutoff a numeric value indicating the maximum minor allele frequency cutoff
+#' under which the sparse weighted covariance file between variants is stored.
+#' @param signif.digits an integer specifying the number of digits to be included beyond the
+#' decimal point.
+#' @param QC_label a character specifying the channel name of the QC label in the GDS/aGDS file.
+#' Default is "annotation/filter".
+#' @param check_qc_label #' @param check_qc_label a logical value indicating whether variants need to be dropped according to \code{qc_label}
+#' specified in \code{\link{generate_MetaSTAAR_sumstat}} and \code{\link{generate_MetaSTAAR_cov}}. Default is FALSE.
+#' @param variant_type a character vector specifying the types of variants to be considered.
+#' Default is c("SNV","Indel","variant").
+#' @param Annotation_dir a character specifying the channel name of the annotations in the aGDS file.
+#' Default is "annotation/info/FunctionalAnnotation"
+#' @param Annotation_name_catalog a data frame containing the annotation name and the corresponding
+#' channel name in the aGDS file.
+#' @param Use_annotation_weights a logical value which specifies if annotations will be used as weights
+#' or not. Default is TRUE.
+#' @param Annotation_name a vector of annotation names used in MetaSTAAR. Default is NULL.
+#' @param silent a logical value which determines if the report of error messages will be suppressed. Default is FALSE.
+#' @return two objects. First, the data frame of all variants in the variant-set (the summary statistics file),
+#' including the following information: chromosome (chr), position (pos), reference allele (ref),
+#' alternative allele (alt), quality control status (qc_label, optional), alternative allele count (alt_AC), minor allele count (MAC),
+#' minor allele frequency (MAF), study sample size (N), score statistic (U), variance (V), and
+#' the (low-rank decomposed) dense component of the covariance file. Second, the sparse matrix of all variants in the variant-set
+#' whose minor allele frequency is below \code{cov_maf_cutoff} (the sparse weighted
+#' covariance file), stored as a rectangle format.
+#' @export
 noncoding_MetaSTAARlite_worker <- function(chr,gene_name,genofile,obj_nullmodel,known_loci=NULL,
                                            cov_maf_cutoff=0.05,signif.digits=NULL,
                                            QC_label="annotation/filter",check_qc_label=FALSE,variant_type=c("SNV","Indel","variant"),

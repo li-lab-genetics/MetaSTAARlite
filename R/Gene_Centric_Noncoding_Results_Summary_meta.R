@@ -1,3 +1,21 @@
+#' Generates summary table and/or visualization for the meta-analysis of noncoding functional categories that was conducted.
+#'
+#' This function generates a summary table, Manhattan plot, and QQ plot for the meta-analysis of noncoding functional categories that was conducted
+#' based on the parameters provided by the user.
+#'
+#' @param gene_centric_noncoding_jobs_num an integer which specifies the number of jobs done in the gene-centric noncoding meta-analysis.
+#' @param input_path a character which specifies the file path to the gene-centric noncoding meta-analysis results files.
+#' @param output_path a character which specifies the file path to the desired location of the produced summary table and visualizations for gene-centric noncoding meta-analysis.
+#' @param gene_centric_results_name a character which specifies the name (excluding the jobs number) of the gene-centric noncoding meta-analysis results files.
+#' @param ncRNA_jobs_num an integer which specifies the number of jobs done in the ncRNA meta-analysis.
+#' @param ncRNA_input_path a character which specifies the file path to the ncRNA meta-analysis results files.
+#' @param ncRNA_output_path a character which specifies the file path to the desired location of the produced summary table and visualizations for the ncRNA meta-analysis.
+#' @param ncRNA_results_name a character which specifies the name (excluding the jobs number) of the ncRNA meta-analysis results files.
+#' @param alpha a numeric value which specifies the desired significance threshold for the gene-centric noncoding meta-analysis. Default is 2.5E-06.
+#' @param alpha_ncRNA a numeric value which specifies the desired significance threshold for the ncRNA meta-analysis. Default is 2.5E-06.
+#' @param manhattan_plot a logical value which determines if a Manhattan plot is generated. Default is FALSE.
+#' @param QQ_plot a logical value which determines if a QQ plot is generated. Default is FALSE.
+
 Gene_Centric_Noncoding_Results_Summary_meta <- function(gene_centric_noncoding_jobs_num,input_path,output_path,gene_centric_results_name,
                                                         ncRNA_jobs_num,ncRNA_input_path,ncRNA_output_path,ncRNA_results_name,
                                                         alpha=2.5E-06,alpha_ncRNA=2.5E-06,
@@ -71,7 +89,7 @@ Gene_Centric_Noncoding_Results_Summary_meta <- function(gene_centric_noncoding_j
       print(kk)
     }
   }
-  
+
   ###### whole-genome results
   # UTR
   save(results_UTR_genome,file=paste0(output_path,"UTR.Rdata"))

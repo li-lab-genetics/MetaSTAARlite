@@ -1,16 +1,13 @@
-#' Gene-centric meta-analysis of coding functional categories using MetaSTAAR procedure
+#' Performs meta-analysis of coding functional categories using MetaSTAAR
 #'
-#' The \code{coding_MetaSTAARlite} function takes in chromosome, gene name,
-#' the summary statistics (part of the output from \cr \code{\link{coding_MetaSTAARlite_worker}}),
-#' and the sparse weighted covariance matrices (part of the output from \cr \code{\link{coding_MetaSTAARlite_worker}})
-#' from each participating study to meta-analyze the association between a
-#' quantitative/dichotomous phenotype and coding functional categories of a gene by using MetaSTAAR procedure.
+#' This function performs meta-analysis to detect associations between a
+#' quantitative/dichotomous phenotype and coding functional categories of a gene by using the MetaSTAAR procedure.
 #' For each coding functional category, the MetaSTAAR-O p-value is a p-value from an omnibus test
 #' that aggregated SKAT-MS(1,25), SKAT-MS(1,1), Burden-MS(1,25), Burden-MS(1,1), ACAT-V-MS(1,25),
 #' and ACAT-V-MS(1,1) together with p-values of each test weighted by each annotation
 #' using Cauchy method.
-#' @param chr chromosome.
-#' @param gene_name name of the gene to be meta-analyzed using MetaSTAAR procedure.
+#' @param chr an integer which specifies the chromosome number.
+#' @param gene_name a character which specifies the name of the gene to be meta-analyzed using the MetaSTAAR procedure.
 #' @param sample.sizes a numeric vector with the length of \code{study.names}
 #' indicating the sample size of each study.
 #' @param coding_sumstat_gene_list a list containing study-specific summary statistics corresponding to the specified gene.
@@ -23,12 +20,11 @@
 #' @param rv_num_cutoff the cutoff of minimum number of variants of meta-analyzing
 #' a given variant-set (default = 2).
 #' @param check_qc_label a logical value indicating whether variants need to be dropped according to \code{qc_label}
-#' specified in \code{\link{generate_MetaSTAAR_sumstat}} and \code{\link{generate_MetaSTAAR_cov}}.
-#' If \code{check_qc_label} is FALSE, it is assumed that no variant will be dropped (default = FALSE).
+#' specified in \code{\link{generate_MetaSTAAR_sumstat}} and \code{\link{generate_MetaSTAAR_cov}}. Default is FALSE.
 #' @param variant_type type of variant included in the analysis. Choices include "SNV", "Indel", or "variant" (default = "SNV").
-#' @param Use_annotation_weights use annotations as weights or not (default = TRUE).
-#' @param Annotation_name a vector of annotation names used in MetaSTAAR (default = NULL).
-#' @param silent logical: should the report of error messages be suppressed (default = FALSE).
+#' @param Use_annotation_weights use annotations as weights or not. Default is TRUE.
+#' @param Annotation_name a vector of annotation names used in MetaSTAAR. Default is NULL.
+#' @param silent a logical value which determines if the report of error messages will be suppressed. Default is FALSE.
 #' @return a list of data frames containing the MetaSTAAR p-values (including MetaSTAAR-O) corresponding to the coding functional category of the given gene.
 #' @references Li, X., et al. (2023). Powerful, scalable and resource-efficient
 #' meta-analysis of rare variant associations in large whole genome sequencing studies.
