@@ -1,8 +1,8 @@
 Package: MetaSTAARlite
 Type: Package
 Title: MetaSTAARlite Pipeline for Meta-Analysis of Whole-Genome/Whole-Exome Sequencing Data
-Version: 0.9.7.1
-Date: 2026-04-06
+Version: 0.9.8.0
+Date: 2026-09-16
 Author: Xihao Li [aut, cre], Yohhan Kumarasinghe [aut, cre], Zilin Li [aut, cre], Yuxin Yuan [aut, cre]
 Maintainer: Xihao Li <xihaoli@unc.edu>, Yohhan Kumarasinghe <yohhan@unc.edu>, Zilin Li <lizl@nenu.edu.cn>, Yuxin Yuan <yuxinyuan@nenu.edu.cn>
 Description: A lightweight R package for using the MetaSTAARlite pipeline in meta-analysis of whole-genome/whole-exome sequencing data.

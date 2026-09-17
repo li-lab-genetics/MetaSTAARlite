@@ -24,7 +24,7 @@ Please see the <a href="docs/MetaSTAARlite_manual.pdf">**MetaSTAARlite** user ma
 ## Data Availability
 The whole-genome functional annotation data assembled from a variety of sources and the precomputed annotation principal components are available at the [Functional Annotation of Variant - Online Resource (FAVOR)](https://favor.genohub.org) site and [FAVOR Essential Database](https://doi.org/10.7910/DVN/1VGTJI).
 ## Version
-The current version is 0.9.7.1 (April 06, 2026).
+The current version is 0.9.8.0 (September 16, 2026).
 ## Citation
 If you use **MetaSTAARlite** for your work, please cite:
 
